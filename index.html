@@ -22,7 +22,7 @@
                     return;
                 }
 
-                Notification.requestPermission().then((permission) => {
+                Notification.requestPermission().then(async (permission) => {
                     // set the button to shown or hidden, depending on what the user answers
                     console.log(`Notifications API permission set to ${permission}`);
                     
@@ -32,6 +32,16 @@
                         document.querySelector('#enable').innerText = "Du dreckige Schwuchtel hast entweder auf ABLEHNEN gedrückt oder du benutzt ein schwules Inkognito-Fenster. Mach den hurensohn scheiss aus!";
                         return;
                     }
+
+                    const response = await fetch("https://www.habbo.de/habbo-imaging/avatarimage?user=Clepsidra&headonly=1&size=b&gesture=sml&direction=2&head_direction=2&action=std");
+                    if (!response.ok) {
+                            console.log("DOWN");
+                    } else {
+                        console.log("UP");
+                        document.querySelector('#enable').innerText = "Starte Überwachung";
+                        document.querySelector('#enable').disabled = false;
+                        const notification = new Notification("Habbo Umbaupause Überwacher (hetero)", { body: "HETERO! HABBO GEHT WIEDER!" }); 
+                    }
                     
                     const intervalId = setInterval(async _ => {
                         const response = await fetch("https://www.habbo.de/habbo-imaging/avatarimage?user=Clepsidra&headonly=1&size=b&gesture=sml&direction=2&head_direction=2&action=std");
@@ -40,6 +50,8 @@
                         } else {
                             console.log("UP");
                             clearInterval(intervalId);
+                            document.querySelector('#enable').innerText = "Starte Überwachung";
+                            document.querySelector('#enable').disabled = false;
                             const notification = new Notification("Habbo Umbaupause Überwacher (hetero)", { body: "HETERO! HABBO GEHT WIEDER!" }); 
                         }
 
