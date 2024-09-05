@@ -8,6 +8,7 @@
         <p>Hallo du Hetero Mensch (nicht gay)!</p>
         <p>Du möchtest wissen wann die Habbo.de Umbaupause zu Ende ist?</p>
         <p>Drücke einfach auf diesen Button und erlaube der Webseite, Benachrichtigayungen zu senden. Dann wirst du automatisch informiert, wenn die Umbaupause vorbei ist!</p>
+        <p>Dieses Feature funktioniert nicht in privaten/Inkognito Fenstern!</p>
         <button id="enable" onclick="askNotificationPermission()">Starte Überwachung</button>
         <script>
 
@@ -26,6 +27,10 @@
                     console.log(`Notifications API permission set to ${permission}`);
                     
                     document.querySelector('#enable').innerText = "Überwachung läuft. Du wirst benachrichtigt, sobald die Umbaupause vorbei ist.";
+
+                    if (permission === "denied") {
+                        document.querySelector('#enable').innerText = "Du dreckige Schwuchtel hast entweder auf ABLEHNEN gedrückt oder du benutzt ein schwules Inkognito-Fenster. Mach den hurensohn scheiss aus!";
+                    }
                     
                     const intervalId = setInterval(async _ => {
                         const response = await fetch("https://www.habbo.de/habbo-imaging/avatarimage?user=Clepsidra&headonly=1&size=b&gesture=sml&direction=2&head_direction=2&action=std");
