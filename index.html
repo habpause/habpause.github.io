@@ -30,6 +30,7 @@
 
                     if (permission === "denied") {
                         document.querySelector('#enable').innerText = "Du dreckige Schwuchtel hast entweder auf ABLEHNEN gedrückt oder du benutzt ein schwules Inkognito-Fenster. Mach den hurensohn scheiss aus!";
+                        return;
                     }
                     
                     const intervalId = setInterval(async _ => {
