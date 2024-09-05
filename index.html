@@ -44,6 +44,8 @@
                         } else if (permission === "granted") {
                             const notification = new Notification("Habbo Umbaupause Überwacher (hetero)", { body: "Du dumme Schwuchtel! Habbo hat gar keine Umbaupause, wen willst du Homo verarschen?" }); 
                         }
+
+                        return;
                     }
                     
                     const intervalId = setInterval(async _ => {
