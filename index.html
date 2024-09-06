@@ -23,14 +23,16 @@
         <p>Disclaimer: Wir sind natürlich nicht homophob. Man kann auch schwul sein ohne eine Schwuchtel zu sein!</p>
         <script>
             
-            const response = await fetch("https://www.habbo.de/habbo-imaging/avatarimage?user=Clepsidra&headonly=1&size=b&gesture=sml&direction=2&head_direction=2&action=std");
-            if (!response.ok) {
-                console.log("DOWN");
-                setStatus('down');
-            } else {
-                console.log("UP");
-                setStatus('up');
-            }
+            (async function() {
+                const response = await fetch("https://www.habbo.de/habbo-imaging/avatarimage?user=Clepsidra&headonly=1&size=b&gesture=sml&direction=2&head_direction=2&action=std");
+                if (!response.ok) {
+                    console.log("DOWN");
+                    setStatus('down');
+                } else {
+                    console.log("UP");
+                    setStatus('up');
+                }
+            })();
 
             async function askNotificationPermission() {
                 document.querySelector('#enable').disabled = true;
