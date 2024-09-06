@@ -34,6 +34,8 @@
                 }
             })();
 
+
+
             async function askNotificationPermission() {
                 document.querySelector('#enable').disabled = true;
                 
@@ -93,17 +95,17 @@
                         console.log("INTERVAL");
                     }, 30000);
                 });
+            }
 
-                function setStatus(status) {
-                    if (status === 'up') {
-                        document.querySelector('#status').style.color = 'green';
-                        document.querySelector('#status').innerText = 'Keine Umbaupause'
-                    } else if (status === 'down') {
-                        document.querySelector('#status').style.color = 'red';
-                        document.querySelector('#status').innerText = 'Umbaupause';
-                    } else {
-                        return;
-                    }
+            function setStatus(status) {
+                if (status === 'up') {
+                    document.querySelector('#status').style.color = 'green';
+                    document.querySelector('#status').innerText = 'Keine Umbaupause'
+                } else if (status === 'down') {
+                    document.querySelector('#status').style.color = 'red';
+                    document.querySelector('#status').innerText = 'Umbaupause';
+                } else {
+                    return;
                 }
             }
 
