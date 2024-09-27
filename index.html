@@ -56,7 +56,7 @@
                         document.querySelector('#enable').innerText = "Du dreckige Schwuchtel hast entweder auf ABLEHNEN gedrückt oder du benutzt ein schwules Inkognito-Fenster. Mach den hurensohn scheiss aus! Die Überwachung geht trotzdem aber die Benachrichtigung ist schwul und nicht so cool!";
                     }
 
-                    const response = await fetch("https://www.habbo.de/habbo-imaging/avatarimage?user=Clepsidra&headonly=1&size=b&gesture=sml&direction=2&head_direction=2&action=std");
+                    const response = await fetch("https://www.habbo.de/api/public/ping");
                     if (!response.ok) {
                             console.log("DOWN");
                             setStatus('down');
@@ -75,7 +75,7 @@
                     }
                     
                     const intervalId = setInterval(async _ => {
-                        const response = await fetch("https://www.habbo.de/habbo-imaging/avatarimage?user=Clepsidra&headonly=1&size=b&gesture=sml&direction=2&head_direction=2&action=std");
+                        const response = await fetch("https://www.habbo.de/api/public/ping");
                         if (!response.ok) {
                             console.log("DOWN");
                             setStatus('down');
